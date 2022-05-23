@@ -1,18 +1,16 @@
 import { Layout } from '../component/Layout'
 import '../styles/globals.scss'
-import Image from 'next/image';
-import img from '../public/w1.jpg'
+import Head from 'next/head';
 
 const MyApp = ({ Component, pageProps }) => (
     <Layout>
+        <Head>
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;1,700&display=swap" rel="stylesheet" />
+        </Head>
         <main className='main'>
             <Component {...pageProps} />
         </main>
-        <Image
-            src={img}
-            alt='img'
-            placeholder='blur'
-        />
+        
     </Layout>
 )
 
