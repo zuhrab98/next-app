@@ -1,11 +1,11 @@
 import { Heading } from "./Heading";
 
-function ContactInfo({ contanct }) {
+function ContactInfo({ contact }) {
 
-    const { name, email, adress } = contanct || {}
-    const { street, suite, city, zipcode } = adress || {}
+    const { name, email, address } = contact || {}
+    const { street, suite, city, zipcode } = address || {}
 
-    if (!contanct) {
+    if (!contact) {
         return <Heading tag={'h3'} text={'Emty contact'}/>
     }
 
@@ -13,11 +13,11 @@ function ContactInfo({ contanct }) {
         <>
             <Heading tag={'h3'} text={name} />
             <div>
-                <strong>Email:</strong>
+                <strong>Email: </strong>
                 {email}
             </div>
             <div>
-                <strong>Adress:</strong>
+                <strong>Adress: </strong>
                 {`${street}, ${suite}, ${city}, ${zipcode}`}
             </div>
         </>
