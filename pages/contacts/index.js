@@ -3,10 +3,11 @@ import { useEffect, useState } from "react"
 import Head from 'next/head'
 import { Heading } from '../../component/Heading'
 import styles from '../../styles/Home.module.scss'
+import Link from "next/link"
 
 export const getStaticProps = async () => {
     const queryString = await fetch('https://jsonplaceholder.typicode.com/users')
-    const data = null
+    const data = await queryString.json()
 
     if (!data) {
         return {
@@ -21,7 +22,6 @@ export const getStaticProps = async () => {
 
 
 const Contacts = ({ contacts }) => {
-    console.log("Contacts => contacts", contacts)
 
     return (
         <>
@@ -31,8 +31,10 @@ const Contacts = ({ contacts }) => {
             <Heading text='Contacts:' />
             <ul>
                 {contacts && contacts.map(({ name, email, id }) => (
-                    <li key={id}><strong>{name}</strong> ({email})</li>
-                ))}
+                    <li key={id}>
+                        <Link href={`/contacts/${id}`}>{name}</Link>
+                    </li>
+                ))} 
             </ul>
         </>
     )
